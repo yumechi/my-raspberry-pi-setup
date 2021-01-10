@@ -1,0 +1,5 @@
+---
+# tasks file for yumechi
+- name: こんぺこ
+  debug:
+    msg: "こんぺこ～！"
