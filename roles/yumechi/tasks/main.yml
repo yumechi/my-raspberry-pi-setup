@@ -3,3 +3,5 @@
 - name: こんぺこ
   debug:
     msg: "こんぺこ～！"
+
+- include: create_user.yaml
