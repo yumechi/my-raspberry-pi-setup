@@ -1,4 +1,5 @@
 ---
 - hosts: raspberry_server
+  become: yes
   roles:
     - yumechi

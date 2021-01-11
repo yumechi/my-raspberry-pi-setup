@@ -1,7 +1,11 @@
 ---
 # tasks file for yumechi
-- name: こんぺこ
-  debug:
-    msg: "こんぺこ～！"
+# install tools
+- include: install_apt_tools.yaml
+- include: install_asdf.yaml
+- include: install_asdf_plugin.yaml
+- include: install_pip_tools.yaml
 
-- include: create_user.yaml
+# create users
+# - include: create_user.yaml
+# - include: create_bot_user.yaml

@@ -1,0 +1,5 @@
+---
+# tasks file for yumechi
+- name: pip install
+  command: "bash -lc 'pip install yq'"
+  become_user: "{{ exec_ubuntu_user }}"

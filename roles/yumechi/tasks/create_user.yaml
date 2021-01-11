@@ -1,5 +1,5 @@
 ---
 # tasks file for yumechi
-- name: だにぇ
-  debug:
-    msg: "だにぇ～！"
+- name: create operation user 
+  group:
+    name: wheel 

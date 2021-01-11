@@ -1,0 +1,23 @@
+---
+# tasks file for yumechi
+# refer: https://github.com/cimon-io/ansible-role-asdf
+- name: asdf git clone
+  command: git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  become_user: "{{ exec_ubuntu_user }}"
+  ignore_errors: yes
+  register: result
+
+- name: asdf update
+  command: "bash -lc 'cd ~/.asdf && git pull'"
+  become_user: "{{ exec_ubuntu_user }}"
+  ignore_errors: yes
+  when: result is failed
+
+- name: source asdf script
+  template:
+    src: "asdf.sh.j2"
+    dest: "/etc/profile.d/asdf.sh"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  become: True

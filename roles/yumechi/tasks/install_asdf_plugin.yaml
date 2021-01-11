@@ -1,0 +1,20 @@
+---
+# tasks file for yumechi
+# refer: https://github.com/cimon-io/ansible-role-asdf
+- name: install plugins
+  command: "bash -lc 'asdf plugin-add python'"
+  args:
+    creates: "{{ exec_ubuntu_user }}/.asdf/plugins/python"
+    chdir: "~"
+  become: True
+  become_user: "{{ exec_ubuntu_user }}"
+  ignore_errors: True
+
+- name: install python
+  command: "bash -lc 'asdf install python {{ python_version }}'"
+  become_user: "{{ exec_ubuntu_user }}"
+
+
+- name: setting python global version
+  command: "bash -lc 'asdf global python {{ python_version }}'"
+  become_user: "{{ exec_ubuntu_user }}"

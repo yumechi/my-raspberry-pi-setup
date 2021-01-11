@@ -1,0 +1,55 @@
+---
+# tasks file for yumechi
+- name: apt update
+  apt:
+    name: "*"
+    update_cache: yes
+
+- name: apt full upgrade
+  apt:
+    name: "*"
+    state: latest
+
+- name: install tools
+  apt:
+    name:
+      - git
+      - jq
+      - vim
+      - bat
+      - zip
+      - colordiff
+      - tree
+      - p7zip-full
+      - curl
+    update_cache: yes
+
+- name: install build tools
+  apt:
+    name:
+      - make
+      - build-essential
+      - libssl-dev
+      - zlib1g-dev
+      - libbz2-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - wget
+      - curl
+      - llvm
+      - libncurses5-dev
+      - xz-utils
+      - tk-dev
+      - libxml2-dev
+      - libxmlsec1-dev
+      - libffi-dev
+      - liblzma-dev
+    update_cache: yes
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes

@@ -1,2 +1,4 @@
 ---
 # vars file for yumechi
+exec_ubuntu_user: "ubuntu"
+python_version: "3.9.1"
